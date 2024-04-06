@@ -31,7 +31,3 @@ services:
 
     image: 'xhofe/alist:latest'
 
-networks:
-  default:
-    external:
-      name: app
