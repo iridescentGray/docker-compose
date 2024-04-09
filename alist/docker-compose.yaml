@@ -21,7 +21,7 @@ services:
     container_name: alist
     hostname: alist
     volumes:
-    - '/data/docker/alist:/opt/alist/data'
+    - './data:/opt/alist/data'
     ports:
     - '5244:5244'
     environment:
