@@ -28,8 +28,8 @@ services:
     networks:
       - db
     volumes:
-      - /data/docker/mysql/data:/var/lib/mysql:rw
-      - /data/docker/mysql/mysql-files:/var/lib/mysql-files:rw
+      - ./mysql/data:/var/lib/mysql:rw
+      - ./mysql/mysql-files:/var/lib/mysql-files:rw
       - ${PWD}/conf:/etc/mysql/conf.d
     restart: always
 

@@ -1,0 +1,17 @@
+  version: '3'
+  services:
+    web:
+      # alpine 基础镜像版本
+      image: dorowu/ubuntu-desktop-lxde-vnc:latest
+      # debian-slim 基础镜像版本
+      # image: whyour/qinglong:debian  
+      volumes:
+        - ./shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
+        - ./pack:/root/Desktop
+      ports:
+        - "0.0.0.0:6080:80"
+        - "0.0.0.0:8891:8891" 
+      restart: unless-stopped
+      command: apt-get update && apt-get install tinyproxy 
+
+

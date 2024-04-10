@@ -1,6 +1,4 @@
-# mysql 5.7 docker-compose.yml
-
-:ref [mysql](https://hub.docker.com/_/mysql)
+# mysql
 
 ## 使用
 
