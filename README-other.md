@@ -26,8 +26,6 @@ https://docs.docker.com/compose/compose-file/
 - 添加环境变量。您可以使用数组或字典。任何布尔值（true、false、yes、no）
 - 需要用引号括起来，以确保它们不会被 YML 解析器转换为 True 或 False
 
-### volumes
-
 ### depends_on
 
 表示服务之间的依赖关系。服务依赖会导致以下行为：
