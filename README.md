@@ -38,9 +38,10 @@
 - other 子网：不符合上面的两种情况下，放在该子网。
 
 创建网络:
-docker network create app
-docker network create db
-docker network create other
+
+- docker network create app
+- docker network create db
+- docker network create other
 
 查看网络:
 docker network ls
