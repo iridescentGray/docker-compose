@@ -1,13 +1,10 @@
   version: '3'
   services:
     web:
-      # alpine 基础镜像版本
-      image: dorowu/ubuntu-desktop-lxde-vnc:latest
-      # debian-slim 基础镜像版本
-      # image: whyour/qinglong:debian  
+      image: dorowu/ubuntu-desktop-lxde-vnc:trusty
       volumes:
         - ./shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
-        - ./pack:/root/Desktop
+        - ./data:/root/Desktop
       ports:
         - "0.0.0.0:6080:80"
         - "0.0.0.0:8891:8891" 

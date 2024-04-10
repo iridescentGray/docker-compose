@@ -1,0 +1,13 @@
+  version: '3'
+  services:
+    web:
+      image: 
+      volumes:
+        - ./data:/root/Desktop
+      ports:
+        - "0.0.0.0:6080:80"
+        - "0.0.0.0:8891:8891" 
+      restart: unless-stopped
+      command: apt-get update && apt-get install tinyproxy 
+
+

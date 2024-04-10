@@ -1,0 +1,14 @@
+  version: '3'
+  services:
+    web:
+      image: dorowu/ubuntu-desktop-lxde-vnc:latest
+      volumes:
+        - ./shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
+        - ./data:/root/Desktop
+      ports:
+        - "0.0.0.0:6080:80"
+        - "0.0.0.0:8891:8891" 
+      restart: unless-stopped
+      command: apt-get update && apt-get install tinyproxy 
+
+
