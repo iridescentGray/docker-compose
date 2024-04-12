@@ -1,0 +1,35 @@
+version: "3.9"
+
+x-base: &default-config
+  restart: unless-stopped
+  ulimits:
+    nproc: 65535
+    nofile:
+      soft: 20000
+      hard: 40000
+  stop_grace_period: 1m
+  logging:
+    driver: json-file
+    options:
+      max-size: '100m'
+      max-file: '1'
+  mem_swappiness: 0
+
+services:
+  easyconnect:
+    image: hagb/docker-easyconnect:7.6.7
+    ports:
+      - "127.0.0.1:5901:5901"
+      - "127.0.0.1:1080:1080"
+    environment:
+      - PASSWORD=123456
+      - URLWIN=1
+    volumes:
+      - ./data:/root
+    devices:
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    tty: true
+    stdin_open: true
+    restart: unless-stopped

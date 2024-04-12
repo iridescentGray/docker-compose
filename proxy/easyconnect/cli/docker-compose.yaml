@@ -1,0 +1,33 @@
+version: "3.9"
+
+x-base: &default-config
+  restart: unless-stopped
+  ulimits:
+    nproc: 65535
+    nofile:
+      soft: 20000
+      hard: 40000
+  stop_grace_period: 1m
+  logging:
+    driver: json-file
+    options:
+      max-size: '100m'
+      max-file: '1'
+  mem_swappiness: 0
+
+services:
+  easyconnect:
+    image: hagb/docker-easyconnect:cli
+    ports:
+      - "127.0.0.1:1080:1080"
+    environment:
+      - EC_VER=7.6.3
+      - CLI_OPTS=
+    volumes:
+      - ./data:/root
+    devices:
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    tty: true
+    stdin_open: true
