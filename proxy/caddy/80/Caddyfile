@@ -1,0 +1,7 @@
+{
+	auto_https off
+}
+
+memos.tmplinux.my.com:80 {
+	reverse_proxy memos:5230
+}

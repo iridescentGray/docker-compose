@@ -1,0 +1,28 @@
+version: '3'
+
+x-base: &default-config
+  restart: unless-stopped
+  ulimits:
+    nproc: 65535
+    nofile:
+      soft: 20000
+      hard: 40000
+  stop_grace_period: 1m
+  logging:
+    driver: json-file
+    options:
+      max-size: '100m'
+      max-file: '1'
+  mem_swappiness: 0
+
+
+services:
+  memos:
+    image: neosmemo/memos:stable
+    << : *default-config
+    ports:
+      - "5230:5230"
+    volumes:
+      - ./data/:/var/opt/memos
+    container_name: memos
+    restart: unless-stopped

@@ -16,18 +16,31 @@ x-base: &default-config
   mem_swappiness: 0
 
 services:
-  server:
+  caddy_https_server:
     image: caddy:2
+    restart: always
     << : *default-config
     ports:
-      - 9090:80
+      - 443:443
+      - 80:80
     volumes:
       - ${PWD}/Caddyfile:/etc/caddy/Caddyfile
       #- /opt/data/docker:/data
-      - /data/docker/caddy:/data
+      - ./data:/data
       - ${PWD}/config:/config
+
+  memos_https:
+    image: neosmemo/memos:stable
+    container_name: memos_https
+    << : *default-config
+    ports:
+      - "5230:5230"
+    volumes:
+      - ./data/memos:/var/opt/memos
+    restart: unless-stopped
 
 networks:
   default:
     external: true
     name: app
+

@@ -1,0 +1,11 @@
+{
+	email email@gmail.com
+}
+
+memos.tmplinux.my.com:80 {
+    reverse_proxy memos_https:5230
+}
+
+memos.tmplinux.my.com:443 {
+    reverse_proxy memos_https:5230
+}
