@@ -1,0 +1,12 @@
+version: '3.1'
+
+
+services:
+  ntfy:
+    image: binwiederhier/ntfy:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./data:/var/cache/ntfy
+    tty: true
+    command: serve
