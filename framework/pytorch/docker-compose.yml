@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  pytorch_base:
+    container_name: pytorch_base
+    image: pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime
+    volumes:
+      - "./data:/workspace"
+    tty: true
+    ipc: host

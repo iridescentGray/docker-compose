@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  #Service for nameserver
+  namesrv:
+    container_name: RocketMQ-namesrv
+    image: apache/rocketmq:latest
+    command: sh mqnamesrv
+    restart: always
+    ports:
+      - 9876:9876
+    environment:
+      - JAVA_OPT_EXT=-Xms512m -Xmx1024m 
+    volumes:
+      - ./data/namesrv_conf:/home/rocketmq/rocketmq-5.1.4/conf
+
+  broker:
+    container_name: RocketMQ-broker
+    depends_on:
+      - namesrv
+    image: apache/rocketmq:latest
+    command: sh mqbroker -n namesrv:9876 -c /home/rocketmq/rocketmq-5.1.4/conf/broker.conf
+    restart: always
+    ports:
+      - 10909:10909
+      - 10911:10911
+      - 10912:10912
+    environment:
+      - NAMESRV_ADDR=namesrv:9876
+    
+      - JAVA_OPT_EXT=-Xms512m -Xmx1024m
+    volumes:
+      - ./broker_conf:/home/rocketmq/rocketmq-5.1.4/conf
+  dashboard:
+    image: apacherocketmq/rocketmq-dashboard:latest
+    container_name: RocketMQ-dashboard
+    ports:
+      - 8080:8080
+    environment:
+     - JAVA_OPTS=-Drocketmq.namesrv.addr=namesrv:9876  
+    depends_on:
+      - broker

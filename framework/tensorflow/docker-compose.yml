@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  tensorflow_jupyter:
+    container_name: tensorflow_jupyter
+    image: tensorflow/tensorflow:latest-jupyter
+    ports:
+      - 8888:8888
+    volumes:
+      - "./data/notebooks:/tf/notebooks"

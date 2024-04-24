@@ -17,6 +17,7 @@ x-base: &default-config
 
 services:
   alist:
+    image: 'xhofe/alist:latest'
     << : *default-config
     container_name: alist
     hostname: alist
@@ -29,5 +30,5 @@ services:
     - PGID=0
     - UMASK=022
 
-    image: 'xhofe/alist:latest'
+
 
