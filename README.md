@@ -45,3 +45,8 @@
 
 查看网络:
 docker network ls
+
+# 类似项目
+
+    bitnami 提供的容器集合
+    https://github.com/bitnami/containers

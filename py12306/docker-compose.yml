@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  py12306:
+    image: pjialin/py12306
+    container_name: py12306
+    ports:
+      - "8118:8008"
+    volumes:
+      - "./config:/config"
+      - "./data:/data"
