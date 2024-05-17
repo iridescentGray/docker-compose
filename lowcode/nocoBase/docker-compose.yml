@@ -1,0 +1,11 @@
+version: "3.9"
+
+
+services:
+  logstash:
+    image: nocobase/nocobase:latest
+    container_name: nocobase
+    volumes:
+      - ./data:/storage
+    ports:
+      - 13000:80
