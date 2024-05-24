@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  traefik-docker:
+    image: traefik:latest
+    container_name: traefik
+    restart: always
+    ports:
+      - "8087:8080"
+      - "80:80"
+    volumes:
+      - "./traefik.yml:/etc/traefik/traefik.yml"
+      - "/var/run/docker.sock:/var/run/docker.sock"

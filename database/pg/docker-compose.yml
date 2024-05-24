@@ -21,7 +21,7 @@ services:
     << : *default-config
     env_file: ./.env
     volumes:
-      - /data/docker/pg-data:/var/lib/postgresql/data
+      - ./pg-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
     networks:
