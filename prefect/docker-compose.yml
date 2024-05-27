@@ -1,0 +1,12 @@
+# version: "3"
+
+# services:
+#   prefect-server:
+#     image: prefecthq/prefect:2.19.2-python3.11
+#     ports:
+#       - 4200:4200
+#     command: prefect server start
+#     tty: true
+#     environment:
+#       #监听主机地址
+#       PREFECT_ORION_API_HOST: 0.0.0.0
