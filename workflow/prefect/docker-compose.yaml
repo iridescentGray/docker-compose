@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  prefect2:
+    image: prefecthq/prefect:2.19-python3.11
+    container_name: prefect2
+    command: prefect server start
+    ports:
+      - 4200:4200
+    environment:
+      #监听主机地址
+      PREFECT_ORION_API_HOST: 0.0.0.0
+      #*.*.*.*需要写UI界面访问到服务器的IP地址
+      PREFECT_API_URL: http://*.*.*.*:4200/api
