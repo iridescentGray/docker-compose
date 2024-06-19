@@ -1,0 +1,7 @@
+version: "3.9"
+
+services:
+  rqlite-docker:
+    image: rqlite/rqlite
+    ports:
+      - 4001:4001
