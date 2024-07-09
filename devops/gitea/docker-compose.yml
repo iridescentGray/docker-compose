@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  server:
+    image: gitea/gitea:latest
+    restart: always
+    volumes:
+      - ./data:/var/lib/gitea
+      - ./config:/etc/gitea
+    ports:
+      - "3001:3000"
+      - "2222:2222"
