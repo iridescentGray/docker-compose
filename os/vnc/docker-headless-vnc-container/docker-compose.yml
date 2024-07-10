@@ -1,0 +1,12 @@
+  version: '3'
+  services:
+    web:
+      image: consol/rocky-xfce-vnc:latest
+      volumes:
+        - ./data:/root/Desktop
+      ports:
+        - "5901:5901"
+        - "6901:6901" 
+      restart: unless-stopped
+
+
