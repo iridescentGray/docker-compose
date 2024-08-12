@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  bytebase:
+    image: bytebase/bytebase:2.22.1
+    container_name: bytebase
+    init: true
+    ports:
+      - "8078:8080"
+    volumes:
+      - ./data:/var/opt/bytebase
+    restart: always
