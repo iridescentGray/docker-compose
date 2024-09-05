@@ -26,7 +26,3 @@ services:
       - ./redis6_data:/redis
     restart: always
 
-networks:
-  default:
-    external: true
-    name: db
