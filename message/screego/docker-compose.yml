@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+  screego:
+    image: ghcr.io/screego/server:1.11.0
+    ports:
+      - 5050:5050
+    environment:
+      SCREEGO_EXTERNAL_IP: "127.0.0.1"
