@@ -1,0 +1,6 @@
+
+headscale.tmplinux.com:80  {
+	reverse_proxy /web* headscale-ui:8080
+	reverse_proxy * headscale:8080
+}
+

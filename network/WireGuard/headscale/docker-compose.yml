@@ -1,0 +1,30 @@
+version: "3.9"
+# https://github.com/juanfont/headscale
+services:
+  headscale:
+    image: headscale/headscale:stable
+    container_name: headscale
+    volumes:
+      - './headscale_config:/etc/headscale'
+      - './data:/var/lib/headscale'
+    # ports:
+      # - 8081:8080 # main
+      # - 9090:9090 # metrics
+    command: serve
+    restart: unless-stopped
+    networks:
+      reverseproxy-nw:
+  headscale-ui:
+    image: ghcr.io/gurucomputing/headscale-ui:latest
+    restart: unless-stopped
+    container_name: headscale-ui
+    volumes:
+      - './headscale_ui_config:/data'
+    ports:
+      # - 443:443
+      - 80:80
+    networks:
+      reverseproxy-nw:
+networks:
+  reverseproxy-nw:
+    external: true

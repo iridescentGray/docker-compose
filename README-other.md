@@ -177,3 +177,16 @@ https://docs.docker.com/compose/compose-file/
 
 - 挂载一个目录或者一个已存在的数据卷容器
 - 格式 HOST:CONTAINER 或 HOST:CONTAINER:ro (数据卷只读)
+
+### cap_add cap_drop:
+- 添加/删除容器的内核功能
+- https://docs.docker.com/reference/compose-file/services/#cap_add
+- 所有内核功能: https://man7.org/linux/man-pages/man7/capabilities.7.html
+
+
+
+### sysctls 
+- 容器内核参数
+- https://docs.docker.com/reference/compose-file/services/#sysctls
+
+

@@ -1,37 +1,19 @@
 version: "3.9"
 
-x-base: &default-config
-  restart: unless-stopped
-  ulimits:
-    nproc: 65535
-    nofile:
-      soft: 20000
-      hard: 40000
-  stop_grace_period: 1m
-  logging:
-    driver: json-file
-    options:
-      max-size: '100m'
-      max-file: '1'
-  mem_swappiness: 0
-
 services:
   caddy_server:
     image: caddy:2
     restart: always
-    << : *default-config
     ports:
       - 80:80
     volumes:
       - ${PWD}/Caddyfile:/etc/caddy/Caddyfile
-      #- /opt/data/docker:/data
       - ./data:/data
       - ${PWD}/config:/config
 
   memos:
     image: neosmemo/memos:stable
     container_name: memos
-    << : *default-config
     ports:
       - "5230:5230"
     volumes:
