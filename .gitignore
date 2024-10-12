@@ -8,3 +8,5 @@ proxy/config.json
 **/.gradle
 
 data/
+volumes/
+certs/
