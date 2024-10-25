@@ -4,7 +4,7 @@ version: '3'
 
 services:
   android-emulator:
-    image: budtmo/docker-android:emulator_11.0
+    image: budtmo/docker-android::latest
     ports:
       - "6080:6080"
     environment:

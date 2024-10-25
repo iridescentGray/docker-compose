@@ -10,3 +10,4 @@ proxy/config.json
 data/
 volumes/
 certs/
+config/
