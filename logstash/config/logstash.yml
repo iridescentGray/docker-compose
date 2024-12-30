@@ -1,9 +1,0 @@
-http:
-  host: "0.0.0.0" # Default: 127.0.0.1
-  port: 9600  # Default
-
-xpack:
-  monitoring:
-    elasticsearch:
-      hosts:
-        - http://es7:9200

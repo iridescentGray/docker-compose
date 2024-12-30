@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  asf:
+    image: justarchi/archisteamfarm:latest
+    pull_policy: always
+    ports:
+      - 1242:1242
+    volumes:
+      - ./my_config:/app/config
+      - ./data/plugins:/app/plugins
+    restart: always
