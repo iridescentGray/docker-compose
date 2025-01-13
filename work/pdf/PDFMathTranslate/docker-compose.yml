@@ -1,0 +1,7 @@
+version: "3.9"
+
+services:
+  pdf2zh:
+    image: byaidu/pdf2zh
+    ports:
+      - "7860:7860"
